@@ -18,9 +18,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import sun.rmi.runtime.Log;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,7 +97,10 @@ public class VNMediaFetch {
 
                     String logoLink = res.listItem.get(i).avatar;
                     String avatar = logoLink.contains("?") ? logoLink.substring(0, logoLink.indexOf("?")) : logoLink;
-                    item.logo = avatar.substring(avatar.lastIndexOf("/") + 1);
+                    LocalDate lDate = item.create_date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    String year = String.valueOf(lDate.getYear()) ;
+                    String month = String.valueOf(lDate.getMonthValue());
+                    item.logo = year + "/" + month + "/" + avatar.substring(avatar.lastIndexOf("/") + 1);
 
                     doc = Jsoup.connect(item.url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A").get();
                     Elements detailElements = doc.getElementsByClass("td-post-content tagdiv-type");

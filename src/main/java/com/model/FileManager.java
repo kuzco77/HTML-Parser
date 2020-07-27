@@ -15,9 +15,10 @@ public class FileManager {
     private static final int READ_TIMEOUT = 10000;
 
     public static boolean downloadFile(String url, String outputPath) {
+        String secureURL = url.replace("http", "https");
         try {
             FileUtils.copyURLToFile(
-                    new URL(url),
+                    new URL(secureURL),
                     new File(outputPath),
                     CONNECTION_TIMEOUT,
                     READ_TIMEOUT
