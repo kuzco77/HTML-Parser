@@ -18,11 +18,11 @@ public class Config {
     public static String VNMEDIA_API_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.S";
 
     /*file config*/
-    public static String IMAGE_STORE_PATH = "/Users/chunamanh/Downloads/logo";
+    public static String IMAGE_STORE_PATH = "/Users/ghddev/Downloads/logo";
 //    public static String IMAGE_STORE_PATH = "/u01/website/phetit.vn/public/images";
 
     /*app config*/
-    public static String LOG_PATH = "/Users/chunamanh/Downloads/logs";
+    public static String LOG_PATH = "/Users/ghddev/Downloads/logs";
 //    public static String LOG_PATH = "/u01/crawl/VNMedia/logs";
 
     /*mysql config*/
