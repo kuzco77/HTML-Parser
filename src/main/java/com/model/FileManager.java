@@ -2,11 +2,7 @@ package com.model;
 
 import com.logger.Logger;
 import org.apache.commons.io.FileUtils;
-import sun.rmi.runtime.Log;
-
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 
@@ -17,6 +13,7 @@ public class FileManager {
     public static boolean downloadFile(String url, String outputPath) {
         String secureURL = url.replace("http", "https");
         try {
+
             FileUtils.copyURLToFile(
                     new URL(secureURL),
                     new File(outputPath),
